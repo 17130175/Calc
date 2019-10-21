@@ -18,11 +18,11 @@ public class test1 {
 			/* Создание объекта класса, содержащего программу */
             Calculator lc = new Calculator();
 			/* Заполнение поля ввода программы определенной последовательностью символов */
-            lc.fields[0].setText("hggfhjk");
+            lc.fields[0].setText("hello");
 			/* Запуск программы */
             lc.calculate();
 			/* Сравнение результата, выдаваемого программой, с ожидаемым значением */
-            Assert.assertTrue("7".equals(lc.fields[1].getText()));
+            Assert.assertTrue("5".equals(lc.fields[1].getText()));
         }
 		/* Код, выполняемый при возникновении ошибок в процессе выполнения теста */
         catch(Exception e){
