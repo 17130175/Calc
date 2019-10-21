@@ -72,13 +72,12 @@ public class Calculator implements ActionListener{
             if(fields.length >= 0){
                 /* Записываем ссылку из метода в массив для дальнейшей работы с текстовым полем */
                 fields[i] = addTextField(panelRight);
-                /* Для того чтобы изменить цвет поля ввода.
-                fields[0].setBackground(Color.RED);
-                fields[1].setBackground(Color.RED);
-                */
             }
         }
-
+        ///* Для того чтобы изменить цвет поля ввода.
+        fields[0].setBackground(Color.RED);
+       // fields[1].setBackground(Color.RED);
+        //*/
         /* Добавляем кнопку расчета количества символов */
         JButton calc = addButton(panelBottom, "Расчет символов");
         /* Добавляем слушатель на событие нажатия кнопки расчета символов */
