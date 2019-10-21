@@ -74,6 +74,7 @@ public class Calculator implements ActionListener{
                 fields[i] = addTextField(panelRight);
                 /* Для того чтобы изменить цвет поля ввода.
                 fields[0].setBackground(Color.RED);
+                fields[1].setBackground(Color.RED);
                 */
             }
         }
@@ -122,7 +123,7 @@ public class Calculator implements ActionListener{
         label.setForeground(color);
         /* Для того чтобы изменить цвет фона текстового поля
         label.setOpaque(true);
-        if (name == "Текст:") {label.setBackground(Color.red);}
+        if (name == "Количество символов в тексте:") {label.setBackground(Color.red);}
 		*/
         /* Устанавливаем выравнивание метки по правому краю */
         label.setHorizontalAlignment(JLabel.RIGHT);
