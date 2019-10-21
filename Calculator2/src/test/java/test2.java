@@ -8,7 +8,7 @@ import org.junit.Test;
 import main.java.Calculator;
 
 /* Создание класса, содержащего код теста */
-public class test1 {
+public class test2 {
     
 	/* Аннотация @Test указывает JUnit, что в методе находится код теста */
     @Test
