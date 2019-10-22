@@ -120,8 +120,8 @@ public class Calculator implements ActionListener{
         label.setMaximumSize(new Dimension(200,20));
         /* Устанавливаем цвета текста метки */
         label.setForeground(color);
-        /* Для того чтобы изменить цвет фона текстового поля
         label.setOpaque(true);
+	/* Для того чтобы изменить цвет фона текстового поля
         if (name == "Количество символов в тексте:") {label.setBackground(Color.red);}
 		*/
         /* Устанавливаем выравнивание метки по правому краю */
