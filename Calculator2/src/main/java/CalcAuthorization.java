@@ -23,7 +23,8 @@ import javax.swing.border.EtchedBorder;
 public class CalcAuthorization implements ActionListener{
 	
 	/* Создаем объект окна авторизации с помощью ключевого слова new */
-    JFrame frameAut = new JFrame("Авторизация");
+	Calculator c = new Calculator();
+    JFrame frameAut = new JFrame(c.a18);
 	/* Создаем объект панели с метками */
     JPanel panelLeftAut = new JPanel();
 	/* Создаем объект панели с текстовыми полями */
@@ -32,47 +33,49 @@ public class CalcAuthorization implements ActionListener{
     JPanel panelBottomAut = new JPanel();
 	/* Создаем массив текстовых полей */
     public JTextField[] fieldsAut = new JTextField[2];
-
      /* Добавляем конструктор класса */
     public CalcAuthorization() {
         /* Устанавливаем менеджер компоновки для панели с метками и выравнивание по вертикали */
         panelLeftAut.setLayout(new BoxLayout(panelLeftAut, BoxLayout.Y_AXIS));
         /* Устанавливаем размер панели с метками 250 на 300 пикселей */
         panelLeftAut.setPreferredSize(new Dimension(250, 300));
-
         /* Устанавливаем менеджер компоновки для панели с текстовыми полями и выравнивание по вертикали */
         panelRightAut.setLayout(new BoxLayout(panelRightAut, BoxLayout.Y_AXIS));
         /* Устанавливаем  размер 230 на 300 пикселей */
         panelRightAut.setPreferredSize(new Dimension(230,300));
 
         /* Добавляем метки к текстовым полям через метод addLabel */
-        addLabel(panelLeftAut, "Логин:", Color.BLACK);
-        addLabel(panelLeftAut, "Пароль:", Color.BLACK);
+        addLabel(panelLeftAut, c.a25, c.a21);
+        addLabel(panelLeftAut, c.a26, c.a22);
         /* Добавляем текстовые поля через цикл и записываем их в массив */
         for(int i = 0; i < fieldsAut.length; i++){
             if(fieldsAut.length >= 0){
                 /* Записываем ссылку из метода в массив для дальнейшей работы с текстовым полем */
                 fieldsAut[i] = addTextField(panelRightAut);}
         }
-
+        if (c.a19 != null) {
+        	fieldsAut[0].setBackground(c.a19);
+        }
+        if (c.a20 != null) {
+        	fieldsAut[0].setBackground(c.a20);
+        }
         /* Добавляем кнопку подтверждения авторизации */
-        JButton signInAut = addButton(panelBottomAut, "Авторизоваться");
+        JButton signInAut = addButton(panelBottomAut, c.a23);
         /* Добавляем слушатель на событие нажатия */
         signInAut.addActionListener(this);
 		/* Добавляем кнопку сброса */
-        JButton resetAut = addButton(panelBottomAut, "Сброс");
+        JButton resetAut = addButton(panelBottomAut, c.a24);
         /* Добавляем слушатель на событие нажатия */
         resetAut.addActionListener(this);
 
         /* Делаем окно авторизации видимым */
         frameAut.setVisible(true);
         /* Устанавливаем действие при нажатии на крестик - завершение приложения */
-        frameAut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameAut.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         /* Устанавливаем начальное положение окна авторизации относительно центра экрана (по центру) */
         frameAut.setLocationRelativeTo(null);
         /* Устанавливаем размер окна авторизации (450 на 200) */
         frameAut.setSize(450,200);
-
         /* Добавляем панель с метками на окно авторизации */
         frameAut.add(panelLeftAut, BorderLayout.WEST);
 		/* Добавляем панель с текстовыми полями на окно авторизации */
@@ -119,6 +122,8 @@ public class CalcAuthorization implements ActionListener{
         button.setMaximumSize(new Dimension(100,20));
         /* Устанавливаем выравнивание по горизонтали (по центру) */
         button.setHorizontalAlignment(JButton.CENTER);
+        if (name == c.a27) {button.setBackground(c.a28);}
+        if (name == c.a29) {button.setForeground(c.a30);}
         /* Добавляем кнопку на панель */
         container.add(button);
         /* Возвращаем ссылку на кнопку */
@@ -143,14 +148,15 @@ public class CalcAuthorization implements ActionListener{
     	for (int i = 0; i < loginArray.length; i++) {
     		if ((login.equals(loginArray[i])) && (password.equals(passwordArray[i]))) {
 				/* Создаем объект главного класса Calculator */
-        		Calculator calc = new Calculator();
-				/* Изменяем значение переменной id в главном классе */
-        		calc.setStateId(true);
+        		/* Изменяем значение переменной id в главном классе */
+        		c.setStateId(true);
 				/* Выводим сообщение об успешном прохождении процесса авторизации */
         		JOptionPane.showMessageDialog(null, "Авторизация пройдена успешно");
 				/* Скрываем окно авторизации */
         		frameAut.setVisible(false);
-        	}
+        		c.setVisible(true);
+        		break;
+        	} else { if (i == 3) {JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");}}
     	}
     }
     
@@ -167,12 +173,12 @@ public class CalcAuthorization implements ActionListener{
 		*/
         if (e.getActionCommand().equals("Авторизоваться")) {
 			/* Обработка исключения на случай возникновения ошибок 
-			в процессе выполнения кода, записанного в боке try. 
+			в процессе выполнения кода, записанного в блоке try. 
 			*/
             try {
                 /* Запускаем метод авторизации */
             	signIn();
-			/* Код, выполняемый при возникновении ошибок 
+            /* Код, выполняемый при возникновении ошибок 
 			в процессе выполнения кода из блока try. 
 			*/
             } catch (Exception ex) {
@@ -202,4 +208,9 @@ public class CalcAuthorization implements ActionListener{
             }
         });
     }
+
+	public void setVisible(boolean b) {
+		frameAut.setVisible(b);
+		
+	}
 }

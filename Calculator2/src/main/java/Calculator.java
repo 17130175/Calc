@@ -24,7 +24,36 @@ public class Calculator implements ActionListener{
 	(если авторизация не пройдена, то значение переменной равно false,
 	в противном случае true).*/
 	private boolean id = false;
-	
+	public String a1 = "Message";//public String a = "Сообщение"; //текст во всплывающем окошке
+	public Color a2 = null;//public Color a2 = Color.GREEN; //цвет поля ввода(верхний)
+	public Color a3 = null;//public Color a3 = Color.RED; //цвет поля ввода(нижний)
+	public Color a4 = Color.BLACK; //цвет текста текстового поля(верхний)
+	public Color a5 = Color.BLACK; //цвет текста текстового поля(нижний)
+	public String a6 = "Расчет количества символов в тексте"; //название программы(титулка, заголовок и т. д.)
+	public String a7 = "Текст:"; // название текстового поля(верхний)
+	public String a8 = "Количество символов в тексте:"; // название текстового поля(нижний)
+	public String a9 = "Расчет символов"; // название кнопки(№1)
+	public String a10 = "Сброс";// название кнопки(№2)
+	public String a11 = "Авторизация";// название кнопки(№3)
+	public String a12 = "Расчет точек и запятых";// название кнопки(№4)
+	public String a13 = null; // название кнопки для изменения цвета
+	public Color a14 = null;//public Color a14 = Color.RED; // цвет кнопки для изменения цвета
+	public String a15 = null;// название кнопки для изменения цвета
+	public Color a16 = null;//public Color a16 = Color.BLACK; // цвет кнопки для изменения цвета
+	public Color a17 = null;//public Color a17 = Color.BLACK; // цвет фона
+	public String a18 = "Авторизация"; //название авторизации(титулка, заголовок и т. д.)
+	public Color a19 = null;//public Color a2 = Color.GREEN; //цвет поля ввода авторизации(верхний)
+	public Color a20 = null;//public Color a3 = Color.RED; //цвет поля ввода авторизации(нижний)
+	public Color a21 = Color.BLACK; //цвет текста текстового поля авторизации(верхний)
+	public Color a22 = Color.BLACK; //цвет текста текстового поля авторизации(нижний)
+	public String a23 = "Авторизоваться"; // название кнопки авторизации(№1)
+	public String a24 = "Сброс";// название кнопки авторизации(№2)
+	public String a25 = "Логин:"; // название текстового поля авторизации(верхний)
+	public String a26 = "Пароль:"; // название текстового поля авторизации(нижний)
+	public String a27 = null; // название кнопки для изменения цвета авторизации
+	public Color a28 = null;//public Color a14 = Color.RED; // цвет кнопки для изменения цвета авторизации
+	public String a29 = null;// название кнопки для изменения цвета авторизации
+	public Color a30 = null;//public Color a16 = Color.BLACK; // цвет кнопки для изменения цвета авторизации
 	/* Создаем метод, который изменяет значение 
     переменной id на значение, которое было 
 	передано в параметрах метода.*/	
@@ -39,7 +68,7 @@ public class Calculator implements ActionListener{
 	}
 	
 	/* Создаем объект главного окна с помощью ключевого слова new */
-    JFrame frame = new JFrame("Расчет количества символов в тексте");
+    JFrame frame = new JFrame(a6);
 	/* Создаем объект панели с метками */
     JPanel panelLeft = new JPanel();
 	/* Создаем объект панели с текстовыми полями */
@@ -51,12 +80,7 @@ public class Calculator implements ActionListener{
 
     /* Добавляем конструктор класса */
     public Calculator() {
-    	/* Для того, чтобы изменить цвет фона.
-    	panelLeft.setBackground(Color.red);
-    	panelRight.setBackground(Color.red);
-    	panelBottom.setBackground(Color.red);
-    	*/
-        /* Устанавливаем менеджер компоновки для панели с метками и выравнивание по вертикали */
+    	/* Устанавливаем менеджер компоновки для панели с метками и выравнивание по вертикали */
         panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.Y_AXIS));
         /* Устанавливаем размер панели с метками 250 на 300 пикселей */
         panelLeft.setPreferredSize(new Dimension(250, 300));
@@ -65,8 +89,8 @@ public class Calculator implements ActionListener{
         /* Устанавливаем размер панели с текстовыми полями 370 на 300 пикселей */
         panelRight.setPreferredSize(new Dimension(370,300));
         /* Добавляем метки к текстовым полям через метод addLabel */
-        addLabel(panelLeft, "Текст:", Color.BLACK);
-        addLabel(panelLeft, "Количество символов в тексте:", Color.BLACK);
+        addLabel(panelLeft, a7, a4);
+        addLabel(panelLeft, a8, a5);
         /* Добавляем текстовые поля через цикл и записываем их в массив */
         for(int i = 0; i < fields.length; i++){
             if(fields.length >= 0){
@@ -74,24 +98,31 @@ public class Calculator implements ActionListener{
                 fields[i] = addTextField(panelRight);
             }
         }
-        /* Для того чтобы изменить цвет поля ввода.
-        fields[0].setBackground(Color.RED);
-        fields[1].setBackground(Color.RED);
-        */
+        if (a2 != null) {
+        	fields[0].setBackground(a2);
+        }
+        if (a3 != null) {
+        	fields[1].setBackground(a3);
+        }
+        if (a17 != null) {
+        	panelLeft.setBackground(a17);
+        	panelRight.setBackground(a17);
+        	panelBottom.setBackground(a17);
+        }
         /* Добавляем кнопку расчета количества символов */
-        JButton calc = addButton(panelBottom, "Расчет символов");
+        JButton calc = addButton(panelBottom, a9);
         /* Добавляем слушатель на событие нажатия кнопки расчета символов */
         calc.addActionListener(this);
 		/* Добавляем кнопку сброса */
-        JButton reset = addButton(panelBottom, "Сброс");
+        JButton reset = addButton(panelBottom, a10);
         /* Добавляем слушатель на событие нажатия кнопки сброса */
         reset.addActionListener(this);
 		/* Добавляем кнопку авторизации */
-        JButton authorization = addButton(panelBottom, "Авторизация");
+        JButton authorization = addButton(panelBottom, a11);
         /* Добавляем слушатель на событие нажатия кнопки авторизации*/
         authorization.addActionListener(this);
         /* Добавляем кнопку расчета количества точек и запятых */
-        JButton punMarks = addButton(panelBottom, "Расчет точек и запятых");
+        JButton punMarks = addButton(panelBottom, a12);
         /* Добавляем слушатель на событие нажатия кнопки расчета количества точек и запятых */
         punMarks.addActionListener(this);
         /* Делаем главное окно видимым */
@@ -148,9 +179,9 @@ public class Calculator implements ActionListener{
     public JButton addButton(JComponent container, String name){
         /* Создаем объект кнопки */
         JButton button = new JButton(name);
-        /* Для того, чтобы изменить цвет кнопки.
-        if (name == "") {button.setBackground(Color.red);}
-        */
+        
+        if (name == a13) {button.setBackground(a14);}
+        if (name == a15) {button.setForeground(a16);}
         /* Устанавливаем максимально допустимый размер кнопки */
         button.setMaximumSize(new Dimension(100,20));
         /* Устанавливаем выравнивание по горизонтали (по центру) */
@@ -221,6 +252,7 @@ public class Calculator implements ActionListener{
                 /* Создаем объект класса CalcAuthorization */
                 CalcAuthorization calcAut = new CalcAuthorization();
 				/* Запускаем процесс авторизации */
+                calcAut.setVisible(false);
                 calcAut.runAut();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");
@@ -231,7 +263,7 @@ public class Calculator implements ActionListener{
 				сообщение, в противном случае - запускаем метод расчета количества
 				точек и запятых. */
                 if(getStateId() == false) {
-                	JOptionPane.showMessageDialog(null, "Авторизируйтесь, чтобы получить доступ к этой функции");
+                	JOptionPane.showMessageDialog(null, "Авторизируйтесь, чтобы получить доступ к этой функции",a1,1);
                 } else {
                 	calculatePunMarks();
                 }
@@ -257,7 +289,15 @@ public class Calculator implements ActionListener{
 			через конструктор главного класса.*/
             public void run() {
                 new Calculator();
+                
             }
         });
     }
+
+	
+
+	public void setVisible(boolean b) {
+		frame.setVisible(b);
+		
+	}
 }
