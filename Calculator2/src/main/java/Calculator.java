@@ -24,7 +24,7 @@ public class Calculator implements ActionListener{
 	(если авторизация не пройдена, то значение переменной равно false,
 	в противном случае true).*/
 	private boolean id = false;
-	public String a1 = "Message";//public String a = "Сообщение"; //текст во всплывающем окошке
+	public String a1 = "Message";//public String a1 = "Сообщение"; //текст во всплывающем окошке
 	public Color a2 = null;//public Color a2 = Color.GREEN; //цвет поля ввода(верхний)
 	public Color a3 = null;//public Color a3 = Color.RED; //цвет поля ввода(нижний)
 	public Color a4 = Color.BLACK; //цвет текста текстового поля(верхний)
@@ -54,6 +54,7 @@ public class Calculator implements ActionListener{
 	public Color a28 = null;//public Color a14 = Color.RED; // цвет кнопки для изменения цвета авторизации
 	public String a29 = null;// название кнопки для изменения цвета авторизации
 	public Color a30 = null;//public Color a16 = Color.BLACK; // цвет кнопки для изменения цвета авторизации
+        public String a31 = "Message";//public String a31 = "Сообщение"; //текст во всплывающем окошке авторизации
 	/* Создаем метод, который изменяет значение 
     переменной id на значение, которое было 
 	передано в параметрах метода.*/	
