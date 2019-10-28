@@ -156,7 +156,7 @@ public class CalcAuthorization implements ActionListener{
         		frameAut.setVisible(false);
         		c.setVisible(true);
         		break;
-        	} else { if (i == 3) {JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");}}
+        	} else { if (i == 3) {JOptionPane.showMessageDialog(null, "Проверьте правильность ввода",c.a31,1);}}
     	}
     }
     
