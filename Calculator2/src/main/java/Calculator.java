@@ -4,6 +4,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -112,18 +113,22 @@ public class Calculator implements ActionListener{
         }
         /* Добавляем кнопку расчета количества символов */
         JButton calc = addButton(panelBottom, a9);
+        //calc.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия кнопки расчета символов */
         calc.addActionListener(this);
 		/* Добавляем кнопку сброса */
         JButton reset = addButton(panelBottom, a10);
+        //reset.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия кнопки сброса */
         reset.addActionListener(this);
 		/* Добавляем кнопку авторизации */
         JButton authorization = addButton(panelBottom, a11);
+        //authorization.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия кнопки авторизации*/
         authorization.addActionListener(this);
         /* Добавляем кнопку расчета количества точек и запятых */
         JButton punMarks = addButton(panelBottom, a12);
+        //punMarks.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия кнопки расчета количества точек и запятых */
         punMarks.addActionListener(this);
         /* Делаем главное окно видимым */
