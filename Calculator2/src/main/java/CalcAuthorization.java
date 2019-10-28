@@ -4,6 +4,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -61,10 +62,12 @@ public class CalcAuthorization implements ActionListener{
         }
         /* Добавляем кнопку подтверждения авторизации */
         JButton signInAut = addButton(panelBottomAut, c.a23);
+        //signInAut.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия */
         signInAut.addActionListener(this);
 		/* Добавляем кнопку сброса */
         JButton resetAut = addButton(panelBottomAut, c.a24);
+        //resetAut.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия */
         resetAut.addActionListener(this);
 
