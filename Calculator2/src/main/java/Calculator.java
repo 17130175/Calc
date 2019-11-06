@@ -256,10 +256,9 @@ public class Calculator implements ActionListener{
         } else if (e.getActionCommand().equals("Авторизация")) {
         	try {
                 /* Создаем объект класса CalcAuthorization */
+        		frame.setVisible(false);
                 CalcAuthorization calcAut = new CalcAuthorization();
 				/* Запускаем процесс авторизации */
-                calcAut.setVisible(false);
-                calcAut.runAut();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");
             }
