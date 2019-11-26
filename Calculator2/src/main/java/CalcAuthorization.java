@@ -42,7 +42,7 @@ public class CalcAuthorization implements ActionListener{
         /* Устанавливаем менеджер компоновки для панели с метками и выравнивание по вертикали */
         panelLeftAut.setLayout(new BoxLayout(panelLeftAut, BoxLayout.Y_AXIS));
         /* Устанавливаем размер панели с метками 250 на 300 пикселей */
-        panelLeftAut.setPreferredSize(new Dimension(250, 300));
+        panelLeftAut.setPreferredSize(new Dimension(200, 100));
         /* Устанавливаем менеджер компоновки для панели с текстовыми полями и выравнивание по вертикали */
         panelRightAut.setLayout(new BoxLayout(panelRightAut, BoxLayout.Y_AXIS));
         /* Устанавливаем  размер 230 на 300 пикселей */
@@ -87,7 +87,7 @@ public class CalcAuthorization implements ActionListener{
         /* Устанавливаем начальное положение окна авторизации относительно центра экрана (по центру) */
         frameAut.setLocationRelativeTo(null);
         /* Устанавливаем размер окна авторизации (450 на 200) */
-        frameAut.setSize(450,200);
+        frameAut.setSize(450,140);
         /* Добавляем панель с метками на окно авторизации */
         frameAut.add(panelLeftAut, BorderLayout.WEST);
 		/* Добавляем панель с текстовыми полями на окно авторизации */

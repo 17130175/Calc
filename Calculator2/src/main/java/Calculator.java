@@ -86,11 +86,11 @@ public class Calculator implements ActionListener{
     	/* Устанавливаем менеджер компоновки для панели с метками и выравнивание по вертикали */
         panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.Y_AXIS));
         /* Устанавливаем размер панели с метками 250 на 300 пикселей */
-        panelLeft.setPreferredSize(new Dimension(250, 300));
+        panelLeft.setPreferredSize(new Dimension(250, 100));
         /* Устанавливаем менеджер компоновки для панели с текстовыми полями и выравнивание по вертикали */
         panelRight.setLayout(new BoxLayout(panelRight, BoxLayout.Y_AXIS));
         /* Устанавливаем размер панели с текстовыми полями 370 на 300 пикселей */
-        panelRight.setPreferredSize(new Dimension(370,300));
+        panelRight.setPreferredSize(new Dimension(300,100));
         /* Добавляем метки к текстовым полям через метод addLabel */
         addLabel(panelLeft, a7, a4);
         addLabel(panelLeft, a8, a5);
@@ -119,7 +119,7 @@ public class Calculator implements ActionListener{
         calc.addActionListener(this);
 		/* Добавляем кнопку сброса */
         JButton reset = addButton(panelBottom, a10);
-        reset.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
+       // reset.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия кнопки сброса */
         reset.addActionListener(this);
 		/* Добавляем кнопку авторизации */
@@ -139,7 +139,7 @@ public class Calculator implements ActionListener{
         /* Устанавливаем начальное положение главного окна относительно центра экрана (по центру) */
         frame.setLocationRelativeTo(null);
         /* Устанавливаем размер главного окна(600 на 200) */
-        frame.setSize(600,200);
+        frame.setSize(560,140);
         /* Добавляем панель с метками на главное окно */
         frame.add(panelLeft, BorderLayout.WEST);
 		/* Добавляем панель с текстовыми полями на главное окно */
@@ -155,7 +155,7 @@ public class Calculator implements ActionListener{
         /* Создаем объект текстовой метки */
         JLabel label = new JLabel(name);
         /* Устанавливаем максимально допустимый размер метки */
-        label.setMaximumSize(new Dimension(200,20));
+        label.setMaximumSize(new Dimension(250,20));
         /* Устанавливаем цвета текста метки */
         label.setForeground(color);
         label.setOpaque(true);
@@ -172,7 +172,7 @@ public class Calculator implements ActionListener{
         /* Создаем объект текстового поля */
         JTextField field = new JTextField();
         /* Устанавливаем максимально допустимый размер поля */
-        field.setMaximumSize(new Dimension(350,20));
+        field.setMaximumSize(new Dimension(300,20));
         /* Добавляем поле на панель */
         container.add(field);
         /* Возвращаем ссылку на текстовое поле */
