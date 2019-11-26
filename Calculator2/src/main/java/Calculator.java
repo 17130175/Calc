@@ -233,9 +233,6 @@ public class Calculator implements ActionListener{
 
     /* С помощью аннотации @Override указываем, что
 	метод, следующий за аннотацией, будет переопределен.*/
-    public void Cnt() {
-    	count++;
-    }
     @Override
 	/* Метод обработки события нажатия на кнопку */
     
@@ -260,7 +257,6 @@ public class Calculator implements ActionListener{
                 /* Создаем объект класса CalcAuthorization */
         		if (getStateId() == false) {frame.setVisible(false);
                 CalcAuthorization calcAut = new CalcAuthorization();
-                count++;
         		}
         		if (getStateId() == true) {
         			JOptionPane.showMessageDialog(null, "Вы уже вошли.");
@@ -303,6 +299,11 @@ public class Calculator implements ActionListener{
 
 	public void setVisible(boolean b) {
 		frame.setVisible(b);
+		
+	}
+
+	public void setEnabled(boolean b) {
+		frame.setEnabled(b);
 		
 	}
 }

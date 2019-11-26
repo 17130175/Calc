@@ -7,6 +7,9 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -44,7 +47,7 @@ public class CalcAuthorization implements ActionListener{
         panelRightAut.setLayout(new BoxLayout(panelRightAut, BoxLayout.Y_AXIS));
         /* Устанавливаем  размер 230 на 300 пикселей */
         panelRightAut.setPreferredSize(new Dimension(230,300));
-
+        c.setEnabled(false);
         /* Добавляем метки к текстовым полям через метод addLabel */
         addLabel(panelLeftAut, c.a25, c.a21);
         addLabel(panelLeftAut, c.a26, c.a22);
@@ -74,7 +77,13 @@ public class CalcAuthorization implements ActionListener{
         /* Делаем окно авторизации видимым */
         frameAut.setVisible(true);
         /* Устанавливаем действие при нажатии на крестик - завершение приложения */
-        frameAut.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frameAut.addWindowListener(new WindowAdapter() {
+        	public void windowClosing(WindowEvent e) {
+        	frameAut.dispose();
+        	c.setEnabled(true);
+        	c.setVisible(true);
+        	}
+        	});
         /* Устанавливаем начальное положение окна авторизации относительно центра экрана (по центру) */
         frameAut.setLocationRelativeTo(null);
         /* Устанавливаем размер окна авторизации (450 на 200) */
@@ -158,6 +167,7 @@ public class CalcAuthorization implements ActionListener{
 				/* Скрываем окно авторизации */
         		frameAut.setVisible(false);
         		c.setVisible(true);
+        		c.setEnabled(true);
         		break;
         	} else { if (i == 3) {JOptionPane.showMessageDialog(null, "Проверьте правильность ввода",c.a31,1);}}
     	}
@@ -197,6 +207,7 @@ public class CalcAuthorization implements ActionListener{
     
     /* Главный метод класса, запускающий процесс авторизации */
     public void runAut() {
+    	
 		/* С помощью метода invokeLater запускаем асинхронную операцию,
 		которая сохраняет действие (Runnable), и запускает его на одной
 		из следующих итераций цикла сообщений.
