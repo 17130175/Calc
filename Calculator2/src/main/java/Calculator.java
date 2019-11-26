@@ -1,4 +1,4 @@
-﻿package main.java;
+package main.java;
 
 /* Подключаем библиотеки для работы с текстовыми полями, метками, для создания графического окна */
 import java.awt.BorderLayout;
@@ -55,6 +55,7 @@ public class Calculator implements ActionListener{
 	public Color a28 = null;//public Color a14 = Color.RED; // цвет кнопки для изменения цвета авторизации
 	public String a29 = null;// название кнопки для изменения цвета авторизации
 	public Color a30 = null;//public Color a16 = Color.BLACK; // цвет кнопки для изменения цвета авторизации
+	public int count = 0;
         public String a31 = "Message";//public String a31 = "Сообщение"; //текст во всплывающем окошке авторизации
 	/* Создаем метод, который изменяет значение 
     переменной id на значение, которое было 
@@ -118,7 +119,7 @@ public class Calculator implements ActionListener{
         calc.addActionListener(this);
 		/* Добавляем кнопку сброса */
         JButton reset = addButton(panelBottom, a10);
-        //reset.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
+        reset.setMargin(new Insets(2,10,2,10));//границы, выравнивание,1-верх,2-лево,3-низ,4-право
         /* Добавляем слушатель на событие нажатия кнопки сброса */
         reset.addActionListener(this);
 		/* Добавляем кнопку авторизации */
@@ -158,9 +159,6 @@ public class Calculator implements ActionListener{
         /* Устанавливаем цвета текста метки */
         label.setForeground(color);
         label.setOpaque(true);
-	/* Для того чтобы изменить цвет фона текстового поля
-        if (name == "Количество символов в тексте:") {label.setBackground(Color.red);}
-		*/
         /* Устанавливаем выравнивание метки по правому краю */
         label.setHorizontalAlignment(JLabel.RIGHT);
         /* Добавляем рамку вокруг метки */
@@ -235,8 +233,12 @@ public class Calculator implements ActionListener{
 
     /* С помощью аннотации @Override указываем, что
 	метод, следующий за аннотацией, будет переопределен.*/
+    public void Cnt() {
+    	count++;
+    }
     @Override
 	/* Метод обработки события нажатия на кнопку */
+    
     public void actionPerformed(ActionEvent e) {
         /* С помощью оператора if выполняем действие,
 		назначенное на ту кнопку, чье имя совпадаем со
@@ -256,8 +258,13 @@ public class Calculator implements ActionListener{
         } else if (e.getActionCommand().equals("Авторизация")) {
         	try {
                 /* Создаем объект класса CalcAuthorization */
-        		frame.setVisible(false);
+        		if (getStateId() == false) {frame.setVisible(false);
                 CalcAuthorization calcAut = new CalcAuthorization();
+                count++;
+        		}
+        		if (getStateId() == true) {
+        			JOptionPane.showMessageDialog(null, "Вы уже вошли.");
+        		}
 				/* Запускаем процесс авторизации */
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Проверьте правильность ввода");
@@ -288,15 +295,8 @@ public class Calculator implements ActionListener{
 		/* С помощью метода invokeLater запускаем асинхронную операцию,
 		которая сохраняет действие (Runnable), и запускает его на одной
 		из следующих итераций цикла сообщений.*/
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-			/* Создаем метод, который запускает калькулятор
-			через конструктор главного класса.*/
-            public void run() {
-                new Calculator();
-                
-            }
-        });
+    	Calculator c = new Calculator();
+    	
     }
 
 	
